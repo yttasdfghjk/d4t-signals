@@ -75,7 +75,7 @@ async def lifespan(_: FastAPI):
     scheduler.add_job(id="4h", func=signals_job, args=[tickers,"4h"], trigger='cron', hour='*/4', jitter=10, max_instances=10) 
     scheduler.add_job(id="1h", func=signals_job, args=[tickers,"1h"], trigger='cron', hour='*', jitter=10, max_instances=10)
     scheduler.add_job(id="15m", func=signals_job, args=[tickers,"15m"], trigger='cron', minute='*/15', jitter=10, max_instances=10)
-    scheduler.add_job(id="5m", func=signals_job, args=[tickers,"5m"], trigger='cron', minute='*/5')
+    #scheduler.add_job(id="5m", func=signals_job, args=[tickers,"5m"], trigger='cron', minute='*/5')
     #scheduler.add_job(id="1m", func=signals_job, args=[tickers,"1m"], trigger='cron', minute='*/1')
     #scheduler.add_job(id="0", func=clean_trash, trigger='cron', minute='*/5', jitter=10)
 
@@ -133,6 +133,6 @@ async def index():
 
 
 if __name__ == "__main__":
-    uvicorn.run("main:app")
+    #uvicorn.run("main:app")
     #prod
-    #uvicorn.run("main:app", host=HOST, port=PORT)
+    uvicorn.run("main:app", host=HOST, port=PORT)
